@@ -23,14 +23,15 @@ from rest_framework import routers
 from publicServices.views import *
 
 router = routers.SimpleRouter()
-router.register(r"user", UserViewSet)
+router.register(r"", UserViewSet)
 
 router.register(r"role", RoleViewSet)
 
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/v1/", include(router.urls)),
+    path("", include(router.urls)),
     path('api/v1/auth/', include('djoser.urls')),
     re_path(r'^auth/', include('djoser.urls.authtoken')),
 ]
